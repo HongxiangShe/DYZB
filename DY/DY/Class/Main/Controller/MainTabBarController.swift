@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarController: UIViewController {
+class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class MainTabBarController: UIViewController {
 extension MainTabBarController {
     
     fileprivate func setupUI() {
-//        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.white
     }
 
 }
@@ -35,16 +35,16 @@ extension MainTabBarController {
     fileprivate func addChilds() {
         
         let homeVC = UIStoryboard(name: "HomeViewController", bundle: nil).instantiateInitialViewController()!
-        addChildVC(normalImage: "tabHome", highlightedImage: "tabHomeHL", title:"首页", childViewController: homeVC)
+        self.addChildVC(normalImage: "tabHome", highlightedImage: "tabHomeHL", title:"首页", childViewController: homeVC)
         
         let liveVC = UIStoryboard(name: "LiveViewController", bundle: nil).instantiateInitialViewController()!
-        addChildVC(normalImage: "tabLiving", highlightedImage: "tabLivingHL", title:"直播", childViewController: liveVC)
+        self.addChildVC(normalImage: "tabLiving", highlightedImage: "tabLivingHL", title:"直播", childViewController: liveVC)
         
         let followVC = UIStoryboard(name: "FollowViewController", bundle: nil).instantiateInitialViewController()!
-        addChildVC(normalImage: "tabFocus", highlightedImage: "tabFocusHL", title:"关注", childViewController: followVC)
+        self.addChildVC(normalImage: "tabFocus", highlightedImage: "tabFocusHL", title:"关注", childViewController: followVC)
         
         let profileVC = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()!
-        addChildVC(normalImage: "tabMine", highlightedImage: "tabMineHL", title:"我的", childViewController: profileVC)
+        self.addChildVC(normalImage: "tabMine", highlightedImage: "tabMineHL", title:"我的", childViewController: profileVC)
     }
     
     fileprivate func addChildVC(normalImage:String, highlightedImage:String, title:String, childViewController:UIViewController) {
@@ -54,6 +54,6 @@ extension MainTabBarController {
         nav.tabBarItem.selectedImage = UIImage(named: highlightedImage)
         nav.tabBarItem.title = title
         nav.addChildViewController(childViewController)
-        addChildViewController(nav)
+        self.addChildViewController(nav)
     }
 }
