@@ -25,6 +25,9 @@ extension MainTabBarController {
     
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
+        let tabBarItem = UITabBarItem.appearance()
+        tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orange , NSFontAttributeName:UIFont.systemFont(ofSize: 14)], for: UIControlState.selected)
+        tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -2)
     }
 
 }
@@ -39,6 +42,9 @@ extension MainTabBarController {
         
         let liveVC = UIStoryboard(name: "LiveViewController", bundle: nil).instantiateInitialViewController()!
         self.addChildVC(normalImage: "tabLiving", highlightedImage: "tabLivingHL", title:"直播", childViewController: liveVC)
+        
+        let videoVC = UIStoryboard(name: "VideoViewController", bundle: nil).instantiateInitialViewController()!
+        self.addChildVC(normalImage: "tabVideo", highlightedImage: "tabVideoHL", title:"视频", childViewController: videoVC)
         
         let followVC = UIStoryboard(name: "FollowViewController", bundle: nil).instantiateInitialViewController()!
         self.addChildVC(normalImage: "tabFocus", highlightedImage: "tabFocusHL", title:"关注", childViewController: followVC)
