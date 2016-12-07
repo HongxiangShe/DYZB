@@ -13,7 +13,18 @@ class MainTabBarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        
         addChilds()
+    }
+
+}
+
+// MARK: - 设置UI
+extension MainTabBarController {
+    
+    fileprivate func setupUI() {
+//        view.backgroundColor = UIColor.white
     }
 
 }
