@@ -77,32 +77,8 @@
 		4CE003A61DF79D7E00F0648A /* Follow */ = {
 			isa = PBXGroup;
 			children = (
-				4CE003A71DF79D7E00F0648A /* Controller */,
-				4CE003A81DF79D7E00F0648A /* Model */,
-				4CE003A91DF79D7E00F0648A /* View */,
 			);
 			path = Follow;
-			sourceTree = "<group>";
-		};
-		4CE003A71DF79D7E00F0648A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		4CE003A81DF79D7E00F0648A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		4CE003A91DF79D7E00F0648A /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4CE003AA1DF79D7E00F0648A /* Home */ = {
