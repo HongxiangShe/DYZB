@@ -28,6 +28,8 @@ extension MainTabBarController {
         let tabBarItem = UITabBarItem.appearance()
         tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orange , NSFontAttributeName:UIFont.systemFont(ofSize: 14)], for: UIControlState.selected)
         tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -2)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 
 }
