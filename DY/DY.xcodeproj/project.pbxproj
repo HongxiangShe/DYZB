@@ -24,6 +24,8 @@
 		4CE0046B1DF7C53D00F0648A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0045B1DF7C53D00F0648A /* VideoViewController.swift */; };
 		4CE004711DF7EBD300F0648A /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004701DF7EBD300F0648A /* UIBarButtonItem+Extension.swift */; };
 		4CE004731DF7FA1B00F0648A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004721DF7FA1B00F0648A /* UIImage+Extension.swift */; };
+		4CE004751DF805BC00F0648A /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004741DF805BC00F0648A /* PageTitleView.swift */; };
+		4CE004771DF8064C00F0648A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004761DF8064C00F0648A /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		4CE0045B1DF7C53D00F0648A /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		4CE004701DF7EBD300F0648A /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		4CE004721DF7FA1B00F0648A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		4CE004741DF805BC00F0648A /* PageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
+		4CE004761DF8064C00F0648A /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 		4CE004471DF7C53D00F0648A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4CE004741DF805BC00F0648A /* PageTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE0046F1DF7EB3D00F0648A /* Category */,
+				4CE004761DF8064C00F0648A /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -394,8 +400,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE004661DF7C53D00F0648A /* MainNavigationController.swift in Sources */,
+				4CE004751DF805BC00F0648A /* PageTitleView.swift in Sources */,
 				4C69D8401DF69F4C00C0B7E9 /* AppDelegate.swift in Sources */,
 				4CE0046B1DF7C53D00F0648A /* VideoViewController.swift in Sources */,
+				4CE004771DF8064C00F0648A /* Common.swift in Sources */,
 				4CE004671DF7C53D00F0648A /* MainTabBarController.swift in Sources */,
 				4CE004611DF7C53D00F0648A /* FollowViewController.swift in Sources */,
 				4CE004691DF7C53D00F0648A /* ProfileViewController.swift in Sources */,
