@@ -77,7 +77,7 @@ extension PageTitleView {
 
 extension PageTitleView {
     @objc fileprivate func btnClick(button: UIButton) {
-        guard button == selectedBtn else {
+        guard button != selectedBtn else {
             return
         }
     }
