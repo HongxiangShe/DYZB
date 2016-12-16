@@ -132,13 +132,27 @@ fileprivate extension PageTitleView {
         selectedBtn?.isSelected = false
         selectedBtn = button
         
-        delegate?.pageTitleViewClickWithButton(titleView: self, button: button)
-        
         UIView.animate(withDuration: 0.25) { [weak self] in
             self?.lineView.center = CGPoint(x: button.center.x, y: (self?.lineView.center.y)!)
+            print("centerX:\(self?.lineView.center)")
         }
+        
+        // 这句代码如果放在动画之前, 会有bug, 有的动画会失去效果
+        delegate?.pageTitleViewClickWithButton(titleView: self, button: button)
+    
     }
-    
-    
+}
+
+// MARK: - 暴露给外面的方法
+extension PageTitleView {
+    func setCenterXWithOffsetX(offsetX: CGFloat, totalWidth: CGFloat) {
+        
+        guard offsetX > 0 && offsetX < (totalWidth - kScreenWidth) else {
+            return
+        }
+        
+        let centerX = kScreenWidth / totalWidth * offsetX + (titleButtons.first?.center.x)!;
+        lineView.center = CGPoint(x: centerX, y: lineView.center.y)
+    }
 }
 

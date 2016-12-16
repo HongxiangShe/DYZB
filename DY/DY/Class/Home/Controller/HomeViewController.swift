@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         }
         
         let contentView = PageContentView(frame: frame, childVCs: vcs, parentViewController: self)
-        
+        contentView.delegate = self
         return contentView
     }()
 
@@ -76,5 +76,12 @@ extension HomeViewController {
 extension HomeViewController: PageTitleViewDelegate {
     func pageTitleViewClickWithButton(titleView: PageTitleView, button: UIButton) {
         contentView.scrollContentViewWithIndex(index: button.tag)
+    }
+}
+
+// MARK: - PageTitleViewDelegate
+extension HomeViewController: PageContentViewDelegate{
+    func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView) {
+        pageTitleView.setCenterXWithOffsetX(offsetX: collectionView.contentOffset.x, totalWidth: collectionView.contentSize.width)
     }
 }
