@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - PageTitleViewDelegate
 protocol PageTitleViewDelegate: class {
     
     func pageTitleViewClickWithButton(titleView: PageTitleView, button: UIButton)
@@ -132,14 +133,12 @@ fileprivate extension PageTitleView {
         selectedBtn?.isSelected = false
         selectedBtn = button
         
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.lineView.center = CGPoint(x: button.center.x, y: (self?.lineView.center.y)!)
-            print("centerX:\(self?.lineView.center)")
-        }
+//        UIView.animate(withDuration: 0.25) { [weak self] in
+//            self?.lineView.center = CGPoint(x: button.center.x, y: (self?.lineView.center.y)!)
+//            print("centerX:\(self?.lineView.center)")
+//        }
         
-        // 这句代码如果放在动画之前, 会有bug, 有的动画会失去效果
         delegate?.pageTitleViewClickWithButton(titleView: self, button: button)
-    
     }
 }
 
@@ -147,12 +146,27 @@ fileprivate extension PageTitleView {
 extension PageTitleView {
     func setCenterXWithOffsetX(offsetX: CGFloat, totalWidth: CGFloat) {
         
-        guard offsetX > 0 && offsetX < (totalWidth - kScreenWidth) else {
+        guard offsetX >= 0 && offsetX <= (totalWidth - kScreenWidth) else {
             return
         }
         
         let centerX = kScreenWidth / totalWidth * offsetX + (titleButtons.first?.center.x)!;
-        lineView.center = CGPoint(x: centerX, y: lineView.center.y)
+        UIView.animate(withDuration: 0.25) {
+            self.lineView.center = CGPoint(x: centerX, y: self.lineView.center.y)
+        }
+        
+        for btn in titleButtons {
+            print("btn.center.x:\(btn.center.x)         centerX:\(centerX)")
+            if (btn.center.x == centerX) {
+                btn.isSelected = true
+                selectedBtn?.isSelected = false
+                selectedBtn = btn
+            }
+        }
+//        let index = Int(offsetX / kScreenWidth)
+//        titleButtons[index].isSelected = true
+//        selectedBtn?.isSelected = false
+//        selectedBtn = titleButtons[index]
     }
 }
 

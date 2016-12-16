@@ -98,6 +98,7 @@ extension PageContentView {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension PageContentView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.pageContentViewScrollWithCollectionView(contentView: self, collectionView: collectionView)
