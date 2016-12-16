@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol PageTitleViewDelegate: class {
+    
+    func pageTitleViewClickWithButton(titleView: PageTitleView, button: UIButton)
+}
+
 fileprivate let kScrollLineH: CGFloat = 3
 
 class PageTitleView: UIView {
@@ -15,6 +20,7 @@ class PageTitleView: UIView {
     // MARK: - 自定义属性
     fileprivate var titles: [String]?
     fileprivate var selectedBtn: UIButton?
+    weak var delegate: PageTitleViewDelegate?
     
     // MARK: - 懒加载
     fileprivate lazy var titleButtons: [UIButton] = [UIButton]()
@@ -74,6 +80,7 @@ fileprivate extension PageTitleView {
         
         for (index, title) in titleArr.enumerated() {
             let btn = UIButton(type:.custom)
+            btn.tag = index
             btnX = CGFloat(index) * width
             btn.setTitle(title, for: .normal)
             btn.setTitleColor(UIColor.darkGray, for: .normal)
@@ -125,8 +132,10 @@ fileprivate extension PageTitleView {
         selectedBtn?.isSelected = false
         selectedBtn = button
         
-        UIView.animate(withDuration: 0.25) { 
-            self.lineView.center = CGPoint(x: button.center.x, y: self.lineView.center.y)
+        delegate?.pageTitleViewClickWithButton(titleView: self, button: button)
+        
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.lineView.center = CGPoint(x: button.center.x, y: (self?.lineView.center.y)!)
         }
     }
     

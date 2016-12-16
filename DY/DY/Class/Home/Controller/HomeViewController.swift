@@ -12,10 +12,11 @@ fileprivate let kTitleViewHeight: CGFloat = 40
 
 class HomeViewController: UIViewController {
     
-    fileprivate lazy var pageTitleView : PageTitleView = {
+    fileprivate lazy var pageTitleView : PageTitleView = {[weak self] in
         let frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kTitleViewHeight)
         let titles = ["推荐", "手游", "娱乐", "游戏", "趣玩"]
         let titleView = PageTitleView(frame: frame, titles: titles)
+        titleView.delegate = self
         return titleView
     }()
     
@@ -39,8 +40,6 @@ class HomeViewController: UIViewController {
         
         setupUI()
     }
-
-    
 }
 
 // MARK: - 设置UI
@@ -70,5 +69,12 @@ extension HomeViewController {
         let siteMessageBtn = UIBarButtonItem(imageName: "siteMessageHome", highImageName: "siteMessageHomeHL", size: size)
         navigationItem.rightBarButtonItems = [searchBtn, scanBtn, viewHistoryBtn, siteMessageBtn]
         
+    }
+}
+
+// MARK: - PageTitleViewDelegate
+extension HomeViewController: PageTitleViewDelegate {
+    func pageTitleViewClickWithButton(titleView: PageTitleView, button: UIButton) {
+        contentView.scrollContentViewWithIndex(index: button.tag)
     }
 }

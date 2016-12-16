@@ -14,19 +14,19 @@ class PageContentView: UIView {
     
     // MARK: - 自定义属性
     fileprivate var childVCs: [UIViewController]
-    fileprivate var parentViewController: UIViewController
+    fileprivate weak var parentViewController: UIViewController?   // 避免循环引用
     
     // MARK: - 懒加载方法
-    fileprivate lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {[weak self] in
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.scrollDirection = .horizontal
         
-        let collectionView: UICollectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        let collectionView: UICollectionView = UICollectionView(frame: self!.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
-        collectionView.dataSource = self
+        collectionView.dataSource = self 
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: contentCellID)
@@ -50,8 +50,12 @@ class PageContentView: UIView {
 // MARK: - 设置UI
 fileprivate extension PageContentView {
     fileprivate func setupUI() {
+        guard let parentVC = parentViewController else {
+            return
+        }
+        
         for chirldVC in childVCs {
-            parentViewController.addChildViewController(chirldVC)
+            parentVC.addChildViewController(chirldVC)
         }
         
         collectionView.frame = bounds
@@ -60,7 +64,7 @@ fileprivate extension PageContentView {
 }
 
 // MARK: - UICollectionViewDataSource
-extension PageContentView: UICollectionViewDataSource {
+extension PageContentView: UICollectionViewDataSource { 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return childVCs.count
@@ -78,5 +82,13 @@ extension PageContentView: UICollectionViewDataSource {
         chirldVC.view.frame = cell.contentView.bounds
         cell.contentView.addSubview(chirldVC.view)
         return cell
+    }
+}
+
+// MARK: - 暴露给外面的方法
+extension PageContentView {
+    func scrollContentViewWithIndex(index: Int) {
+//        collectionView.setContentOffset(CGPoint(x: CGFloat(index) * kScreenWidth, y: 0), animated: false)
+        collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
     }
 }
