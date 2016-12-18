@@ -154,19 +154,20 @@ extension PageTitleView {
         UIView.animate(withDuration: 0.25) {
             self.lineView.center = CGPoint(x: centerX, y: self.lineView.center.y)
         }
+    }
+    
+    func selectTitleButton(offsetX: CGFloat) {
         
-        for btn in titleButtons {
-            print("btn.center.x:\(btn.center.x)         centerX:\(centerX)")
-            if (btn.center.x == centerX) {
-                btn.isSelected = true
-                selectedBtn?.isSelected = false
-                selectedBtn = btn
-            }
+        let index = Int(offsetX / kScreenWidth)
+        let button = titleButtons[index]
+        guard button != selectedBtn else {
+            return
         }
-//        let index = Int(offsetX / kScreenWidth)
-//        titleButtons[index].isSelected = true
-//        selectedBtn?.isSelected = false
-//        selectedBtn = titleButtons[index]
+        
+        button.isSelected = true
+        selectedBtn?.isSelected = false
+        selectedBtn = button
+        
     }
 }
 

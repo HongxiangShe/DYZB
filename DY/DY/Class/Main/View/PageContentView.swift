@@ -11,6 +11,7 @@ import UIKit
 // MARK: - PageContentViewDelegate
 protocol PageContentViewDelegate: class {
     func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView);
+    func pageContentViewSelectTitleButton(contentView: PageContentView, collectionView: UICollectionView);
 }
 
 fileprivate let contentCellID = "contentCellID"
@@ -102,5 +103,9 @@ extension PageContentView {
 extension PageContentView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.pageContentViewScrollWithCollectionView(contentView: self, collectionView: collectionView)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        delegate?.pageContentViewSelectTitleButton(contentView: self, collectionView: collectionView)
     }
 }

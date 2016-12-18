@@ -84,4 +84,8 @@ extension HomeViewController: PageContentViewDelegate{
     func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView) {
         pageTitleView.setCenterXWithOffsetX(offsetX: collectionView.contentOffset.x, totalWidth: collectionView.contentSize.width)
     }
+    
+    func pageContentViewSelectTitleButton(contentView: PageContentView, collectionView: UICollectionView) {
+        pageTitleView.selectTitleButton(offsetX: collectionView.contentOffset.x)
+    }
 }
