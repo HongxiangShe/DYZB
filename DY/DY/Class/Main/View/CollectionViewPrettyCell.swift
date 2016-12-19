@@ -1,5 +1,5 @@
 //
-//  CollectionViewNormalCell.swift
+//  CollectionViewPrettyCell.swift
 //  DY
 //
 //  Created by 佘红响 on 16/12/19.
@@ -8,17 +8,14 @@
 
 import UIKit
 
-class CollectionViewNormalCell: UICollectionViewCell {
+class CollectionViewPrettyCell: UICollectionViewCell {
 
-    @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var watchButton: UIButton!
     @IBOutlet weak var watchButtonWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var watchButton: WatchButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        coverImageView.layer.cornerRadius = 5
-        coverImageView.layer.masksToBounds = true
-        watchButton.setTitle("2万", for: .normal)
+        
     }
     
     override func layoutSubviews() {

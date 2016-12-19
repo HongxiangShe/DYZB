@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewPrettyCell" customModule="DY" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="206" height="184"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="206" height="184"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live_cell_default_phone" translatesAutoresizingMaskIntoConstraints="NO" id="iIP-9B-l9V"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-Hx-egr">
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安妮 baby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne5-ev-dRw">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbN-zO-wsj">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_video_user" translatesAutoresizingMaskIntoConstraints="NO" id="f0I-TQ-SzI">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="2NK-mx-6tG"/>
+                                    <constraint firstAttribute="width" constant="12" id="oG8-mo-zMa"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_live_vertical_locate" translatesAutoresizingMaskIntoConstraints="NO" id="Bet-Is-6xV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="0Eg-m1-aNS"/>
+                                    <constraint firstAttribute="width" constant="12" id="BsV-F3-A9i"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="8Qm-xx-69w"/>
+                            <constraint firstAttribute="trailing" secondItem="JbN-zO-wsj" secondAttribute="trailing" id="Evn-fm-bqU"/>
+                            <constraint firstItem="JbN-zO-wsj" firstAttribute="leading" secondItem="Bet-Is-6xV" secondAttribute="trailing" constant="5" id="Lqj-Fc-33J"/>
+                            <constraint firstItem="Bet-Is-6xV" firstAttribute="centerY" secondItem="JbN-zO-wsj" secondAttribute="centerY" id="M39-MC-S0U"/>
+                            <constraint firstItem="Ne5-ev-dRw" firstAttribute="centerY" secondItem="ewb-Hx-egr" secondAttribute="centerY" id="X8o-Pn-6cl"/>
+                            <constraint firstItem="f0I-TQ-SzI" firstAttribute="centerY" secondItem="ewb-Hx-egr" secondAttribute="centerY" id="cpu-Pz-wZX"/>
+                            <constraint firstItem="JbN-zO-wsj" firstAttribute="centerY" secondItem="ewb-Hx-egr" secondAttribute="centerY" id="h50-sH-rfJ"/>
+                            <constraint firstItem="Ne5-ev-dRw" firstAttribute="leading" secondItem="f0I-TQ-SzI" secondAttribute="trailing" constant="5" id="hjc-xh-shK"/>
+                            <constraint firstItem="f0I-TQ-SzI" firstAttribute="leading" secondItem="ewb-Hx-egr" secondAttribute="leading" constant="5" id="lhV-ai-uC5"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-TW-S3O" customClass="WatchButton" customModule="DY" customModuleProvider="target">
+                        <color key="backgroundColor" white="0.0" alpha="0.20251794763513514" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Mfu-GS-ofi"/>
+                            <constraint firstAttribute="width" constant="40" id="R2V-Kz-NjU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="9009" image="viewerIcon"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ewb-Hx-egr" secondAttribute="bottom" id="2FL-Dh-sUG"/>
+                <constraint firstItem="ewb-Hx-egr" firstAttribute="top" secondItem="iIP-9B-l9V" secondAttribute="bottom" id="9W3-Te-QZo"/>
+                <constraint firstItem="iIP-9B-l9V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9x8-9t-8OW"/>
+                <constraint firstItem="iIP-9B-l9V" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="CbL-yB-Aam"/>
+                <constraint firstAttribute="trailing" secondItem="ewb-Hx-egr" secondAttribute="trailing" id="EPH-IA-Goq"/>
+                <constraint firstAttribute="trailing" secondItem="Di0-TW-S3O" secondAttribute="trailing" constant="5" id="KDW-bA-Uab"/>
+                <constraint firstAttribute="trailing" secondItem="iIP-9B-l9V" secondAttribute="trailing" id="j8c-38-9ic"/>
+                <constraint firstItem="ewb-Hx-egr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mNh-6k-Hio"/>
+                <constraint firstItem="Di0-TW-S3O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="rcx-9W-nuT"/>
+            </constraints>
+            <size key="customSize" width="206" height="184"/>
+            <connections>
+                <outlet property="watchButton" destination="Di0-TW-S3O" id="RNi-Tc-m3e"/>
+                <outlet property="watchButtonWidthConstraint" destination="R2V-Kz-NjU" id="TuP-nr-PWN"/>
+            </connections>
+            <point key="canvasLocation" x="-76" y="41"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="home_live_vertical_locate" width="12" height="12"/>
+        <image name="live_cell_default_phone" width="103" height="103"/>
+        <image name="my_video_user" width="12" height="12"/>
+        <image name="viewerIcon" width="10" height="8"/>
+    </resources>
+</document>

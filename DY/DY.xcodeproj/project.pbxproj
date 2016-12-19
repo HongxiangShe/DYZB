@@ -33,6 +33,9 @@
 		4CE004731DF7FA1B00F0648A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004721DF7FA1B00F0648A /* UIImage+Extension.swift */; };
 		4CE004751DF805BC00F0648A /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004741DF805BC00F0648A /* PageTitleView.swift */; };
 		4CE004771DF8064C00F0648A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004761DF8064C00F0648A /* Common.swift */; };
+		E2D1A7F11E081D8E009BD8C8 /* CollectionViewPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1A7EF1E081D8E009BD8C8 /* CollectionViewPrettyCell.swift */; };
+		E2D1A7F21E081D8E009BD8C8 /* CollectionViewPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D1A7F01E081D8E009BD8C8 /* CollectionViewPrettyCell.xib */; };
+		E2D1A7F61E08386A009BD8C8 /* WatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1A7F51E08386A009BD8C8 /* WatchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		4CE004721DF7FA1B00F0648A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4CE004741DF805BC00F0648A /* PageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
 		4CE004761DF8064C00F0648A /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		E2D1A7EF1E081D8E009BD8C8 /* CollectionViewPrettyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPrettyCell.swift; sourceTree = "<group>"; };
+		E2D1A7F01E081D8E009BD8C8 /* CollectionViewPrettyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewPrettyCell.xib; sourceTree = "<group>"; };
+		E2D1A7F51E08386A009BD8C8 /* WatchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +260,9 @@
 				4CE004741DF805BC00F0648A /* PageTitleView.swift */,
 				4C6A44901E07E1D2005534E4 /* CollectionViewNormalCell.swift */,
 				4C6A44911E07E1D2005534E4 /* CollectionViewNormalCell.xib */,
+				E2D1A7EF1E081D8E009BD8C8 /* CollectionViewPrettyCell.swift */,
+				E2D1A7F01E081D8E009BD8C8 /* CollectionViewPrettyCell.xib */,
+				E2D1A7F51E08386A009BD8C8 /* WatchButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 				4C69D84A1DF69F4C00C0B7E9 /* LaunchScreen.storyboard in Resources */,
 				4CE004681DF7C53D00F0648A /* ProfileViewController.storyboard in Resources */,
 				4CE0046A1DF7C53D00F0648A /* VideoViewController.storyboard in Resources */,
+				E2D1A7F21E081D8E009BD8C8 /* CollectionViewPrettyCell.xib in Resources */,
 				4C69D8471DF69F4C00C0B7E9 /* Assets.xcassets in Resources */,
 				4C6A44931E07E1D2005534E4 /* CollectionViewNormalCell.xib in Resources */,
 				4CE004641DF7C53D00F0648A /* LiveViewController.storyboard in Resources */,
@@ -422,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D1A7F61E08386A009BD8C8 /* WatchButton.swift in Sources */,
 				4CE004661DF7C53D00F0648A /* MainNavigationController.swift in Sources */,
 				4CE004751DF805BC00F0648A /* PageTitleView.swift in Sources */,
 				4C6A448E1E07CA77005534E4 /* HomeCollectionHeaderView.swift in Sources */,
@@ -436,6 +447,7 @@
 				4CE004651DF7C53D00F0648A /* LiveViewController.swift in Sources */,
 				4CE004731DF7FA1B00F0648A /* UIImage+Extension.swift in Sources */,
 				4C8ED1681E028E2000D6B2A2 /* PageContentView.swift in Sources */,
+				E2D1A7F11E081D8E009BD8C8 /* CollectionViewPrettyCell.swift in Sources */,
 				4CE004711DF7EBD300F0648A /* UIBarButtonItem+Extension.swift in Sources */,
 				4CE004631DF7C53D00F0648A /* HomeViewController.swift in Sources */,
 				4C6A448B1E07B37F005534E4 /* RecommendViewController.swift in Sources */,
