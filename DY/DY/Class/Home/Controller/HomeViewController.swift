@@ -23,8 +23,8 @@ class HomeViewController: UIViewController {
     fileprivate lazy var contentView : PageContentView = {
         let frame = CGRect(x: 0, y: kTitleViewHeight, width: kScreenWidth, height: kScreenHeight - kTopBarH - kTitleViewHeight - kTabBarH)
         var vcs = [UIViewController]()
-        
-        for _ in 0..<5 {
+        vcs.append(RecommendViewController())
+        for _ in 1..<5 {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b:CGFloat(arc4random_uniform(255)))
             vcs.append(vc)
@@ -81,11 +81,15 @@ extension HomeViewController: PageTitleViewDelegate {
 
 // MARK: - PageTitleViewDelegate
 extension HomeViewController: PageContentViewDelegate{
-    func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView) {
-        pageTitleView.setCenterXWithOffsetX(offsetX: collectionView.contentOffset.x, totalWidth: collectionView.contentSize.width)
-    }
+//    func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView) {
+//        pageTitleView.setCenterXWithOffsetX(offsetX: collectionView.contentOffset.x, totalWidth: collectionView.contentSize.width)
+//    }
+//    
+//    func pageContentViewSelectTitleButton(contentView: PageContentView, collectionView: UICollectionView) {
+//        pageTitleView.selectTitleButton(offsetX: collectionView.contentOffset.x)
+//    }
     
-    func pageContentViewSelectTitleButton(contentView: PageContentView, collectionView: UICollectionView) {
-        pageTitleView.selectTitleButton(offsetX: collectionView.contentOffset.x)
+    func pageContentView(progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.titleViewWithProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }

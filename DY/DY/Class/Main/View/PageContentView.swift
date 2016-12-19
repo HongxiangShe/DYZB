@@ -10,8 +10,9 @@ import UIKit
 
 // MARK: - PageContentViewDelegate
 protocol PageContentViewDelegate: class {
-    func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView);
-    func pageContentViewSelectTitleButton(contentView: PageContentView, collectionView: UICollectionView);
+//    func pageContentViewScrollWithCollectionView(contentView: PageContentView, collectionView: UICollectionView);
+//    func pageContentViewSelectTitleButton(contentView: PageContentView, collectionView: UICollectionView);
+    func pageContentView(progress: CGFloat, sourceIndex: Int, targetIndex: Int)
 }
 
 fileprivate let contentCellID = "contentCellID"
@@ -20,6 +21,8 @@ class PageContentView: UIView {
     // MARK: - 自定义属性
     fileprivate var childVCs: [UIViewController]
     fileprivate weak var parentViewController: UIViewController?   // 避免循环引用
+    fileprivate var startOffsetX: CGFloat = 0
+    
     weak var delegate: PageContentViewDelegate?
     
     // MARK: - 懒加载方法
@@ -85,7 +88,7 @@ extension PageContentView: UICollectionViewDataSource {
         }
         
         let chirldVC = childVCs[indexPath.item]
-        chirldVC.view.frame = cell.contentView.bounds
+        chirldVC.view.frame = bounds
         cell.contentView.addSubview(chirldVC.view)
         return cell
     }
@@ -101,11 +104,55 @@ extension PageContentView {
 
 // MARK: - UICollectionViewDelegate
 extension PageContentView: UICollectionViewDelegate {
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        delegate?.pageContentViewScrollWithCollectionView(contentView: self, collectionView: collectionView)
+//    }
+//    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        delegate?.pageContentViewSelectTitleButton(contentView: self, collectionView: collectionView)
+//    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.pageContentViewScrollWithCollectionView(contentView: self, collectionView: collectionView)
+        
+        let contentOffsetX = scrollView.contentOffset.x
+        guard contentOffsetX >= 0 && contentOffsetX <= (scrollView.contentSize.width - kScreenWidth) else {
+            return
+        }
+        
+        var progress: CGFloat = 0
+        var sourceIndex: Int = 0
+        var targetIndex: Int = 0
+        
+        let width = scrollView.bounds.size.width
+        if contentOffsetX > startOffsetX {  // 左滑
+            progress = contentOffsetX / width - floor(contentOffsetX / width)
+            sourceIndex = Int(contentOffsetX / width)
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVCs.count {
+                targetIndex = childVCs.count - 1
+            }
+            if contentOffsetX - startOffsetX == width {
+                progress = 0
+                targetIndex = sourceIndex
+            }
+        } else {                            // 右滑
+            progress = 1 - (contentOffsetX / width - floor(contentOffsetX / width))
+            targetIndex = Int(contentOffsetX / width)
+            sourceIndex = targetIndex + 1
+            if sourceIndex >= childVCs.count {
+                sourceIndex = childVCs.count - 1
+            }
+            if startOffsetX - contentOffsetX == width {
+                progress = 0
+                sourceIndex = targetIndex
+            }
+        }
+//        print("sourceIndex: \(sourceIndex)    targetIndex:\(targetIndex)   progress:\(progress)")
+        delegate?.pageContentView(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        delegate?.pageContentViewSelectTitleButton(contentView: self, collectionView: collectionView)
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
     }
 }

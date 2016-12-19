@@ -10,6 +10,11 @@
 		4C69D8401DF69F4C00C0B7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69D83F1DF69F4C00C0B7E9 /* AppDelegate.swift */; };
 		4C69D8471DF69F4C00C0B7E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C69D8461DF69F4C00C0B7E9 /* Assets.xcassets */; };
 		4C69D84A1DF69F4C00C0B7E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69D8481DF69F4C00C0B7E9 /* LaunchScreen.storyboard */; };
+		4C6A448B1E07B37F005534E4 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A448A1E07B37F005534E4 /* RecommendViewController.swift */; };
+		4C6A448E1E07CA77005534E4 /* HomeCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A448C1E07CA77005534E4 /* HomeCollectionHeaderView.swift */; };
+		4C6A448F1E07CA77005534E4 /* HomeCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A448D1E07CA77005534E4 /* HomeCollectionHeaderView.xib */; };
+		4C6A44921E07E1D2005534E4 /* CollectionViewNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A44901E07E1D2005534E4 /* CollectionViewNormalCell.swift */; };
+		4C6A44931E07E1D2005534E4 /* CollectionViewNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A44911E07E1D2005534E4 /* CollectionViewNormalCell.xib */; };
 		4C8ED1681E028E2000D6B2A2 /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8ED1671E028E2000D6B2A2 /* PageContentView.swift */; };
 		4C8ED16A1E029E7900D6B2A2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8ED1691E029E7900D6B2A2 /* UIColor+Extension.swift */; };
 		4CE004601DF7C53D00F0648A /* FollowViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE0042B1DF7C53D00F0648A /* FollowViewController.storyboard */; };
@@ -36,6 +41,11 @@
 		4C69D8461DF69F4C00C0B7E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C69D8491DF69F4C00C0B7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C69D84B1DF69F4C00C0B7E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C6A448A1E07B37F005534E4 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		4C6A448C1E07CA77005534E4 /* HomeCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderView.swift; sourceTree = "<group>"; };
+		4C6A448D1E07CA77005534E4 /* HomeCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionHeaderView.xib; sourceTree = "<group>"; };
+		4C6A44901E07E1D2005534E4 /* CollectionViewNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewNormalCell.swift; sourceTree = "<group>"; };
+		4C6A44911E07E1D2005534E4 /* CollectionViewNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewNormalCell.xib; sourceTree = "<group>"; };
 		4C8ED1671E028E2000D6B2A2 /* PageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
 		4C8ED1691E029E7900D6B2A2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		4CE0042B1DF7C53D00F0648A /* FollowViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FollowViewController.storyboard; sourceTree = "<group>"; };
@@ -157,6 +167,7 @@
 			children = (
 				4CE004341DF7C53D00F0648A /* HomeViewController.swift */,
 				4CE004331DF7C53D00F0648A /* HomeViewController.storyboard */,
+				4C6A448A1E07B37F005534E4 /* RecommendViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +182,8 @@
 		4CE004371DF7C53D00F0648A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4C6A448C1E07CA77005534E4 /* HomeCollectionHeaderView.swift */,
+				4C6A448D1E07CA77005534E4 /* HomeCollectionHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +252,8 @@
 			children = (
 				4C8ED1671E028E2000D6B2A2 /* PageContentView.swift */,
 				4CE004741DF805BC00F0648A /* PageTitleView.swift */,
+				4C6A44901E07E1D2005534E4 /* CollectionViewNormalCell.swift */,
+				4C6A44911E07E1D2005534E4 /* CollectionViewNormalCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,7 +408,9 @@
 				4CE004681DF7C53D00F0648A /* ProfileViewController.storyboard in Resources */,
 				4CE0046A1DF7C53D00F0648A /* VideoViewController.storyboard in Resources */,
 				4C69D8471DF69F4C00C0B7E9 /* Assets.xcassets in Resources */,
+				4C6A44931E07E1D2005534E4 /* CollectionViewNormalCell.xib in Resources */,
 				4CE004641DF7C53D00F0648A /* LiveViewController.storyboard in Resources */,
+				4C6A448F1E07CA77005534E4 /* HomeCollectionHeaderView.xib in Resources */,
 				4CE004601DF7C53D00F0648A /* FollowViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,10 +424,12 @@
 			files = (
 				4CE004661DF7C53D00F0648A /* MainNavigationController.swift in Sources */,
 				4CE004751DF805BC00F0648A /* PageTitleView.swift in Sources */,
+				4C6A448E1E07CA77005534E4 /* HomeCollectionHeaderView.swift in Sources */,
 				4C69D8401DF69F4C00C0B7E9 /* AppDelegate.swift in Sources */,
 				4CE0046B1DF7C53D00F0648A /* VideoViewController.swift in Sources */,
 				4CE004771DF8064C00F0648A /* Common.swift in Sources */,
 				4CE004671DF7C53D00F0648A /* MainTabBarController.swift in Sources */,
+				4C6A44921E07E1D2005534E4 /* CollectionViewNormalCell.swift in Sources */,
 				4CE004611DF7C53D00F0648A /* FollowViewController.swift in Sources */,
 				4C8ED16A1E029E7900D6B2A2 /* UIColor+Extension.swift in Sources */,
 				4CE004691DF7C53D00F0648A /* ProfileViewController.swift in Sources */,
@@ -419,6 +438,7 @@
 				4C8ED1681E028E2000D6B2A2 /* PageContentView.swift in Sources */,
 				4CE004711DF7EBD300F0648A /* UIBarButtonItem+Extension.swift in Sources */,
 				4CE004631DF7C53D00F0648A /* HomeViewController.swift in Sources */,
+				4C6A448B1E07B37F005534E4 /* RecommendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

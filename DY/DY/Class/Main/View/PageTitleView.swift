@@ -15,6 +15,10 @@ protocol PageTitleViewDelegate: class {
 }
 
 fileprivate let kScrollLineH: CGFloat = 3
+fileprivate let kNormarlColor: (CGFloat, CGFloat, CGFloat) = (40, 40, 40)
+fileprivate let kSelectorColor: (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
+fileprivate let btnSelectorColor = UIColor(r: kSelectorColor.0, g: kSelectorColor.1, b: kSelectorColor.2)
+fileprivate let btnNormalColor = UIColor(r: kNormarlColor.0, g: kNormarlColor.1, b: kNormarlColor.2)
 
 class PageTitleView: UIView {
     
@@ -84,8 +88,7 @@ fileprivate extension PageTitleView {
             btn.tag = index
             btnX = CGFloat(index) * width
             btn.setTitle(title, for: .normal)
-            btn.setTitleColor(UIColor.darkGray, for: .normal)
-            btn.setTitleColor(UIColor.orange, for: .selected)
+            btn.setTitleColor(btnNormalColor, for: .normal)
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             btn.frame = CGRect(x: btnX, y: btnY, width: width, height: height)
             btn.addTarget(self, action: #selector(btnClick(button:)), for: .touchUpInside)
@@ -94,7 +97,7 @@ fileprivate extension PageTitleView {
             
             if (index == 0) {
                 selectedBtn = btn
-                btn.isSelected = true
+                btn.setTitleColor(btnSelectorColor, for: .normal)
             }
         }
     }
@@ -129,45 +132,63 @@ fileprivate extension PageTitleView {
         guard button != selectedBtn else {
             return
         }
-        button.isSelected = true
-        selectedBtn?.isSelected = false
+        button.setTitleColor(btnSelectorColor, for: .normal)
+        selectedBtn?.setTitleColor(btnNormalColor, for: .normal)
         selectedBtn = button
-        
-//        UIView.animate(withDuration: 0.25) { [weak self] in
-//            self?.lineView.center = CGPoint(x: button.center.x, y: (self?.lineView.center.y)!)
-//            print("centerX:\(self?.lineView.center)")
-//        }
-        
         delegate?.pageTitleViewClickWithButton(titleView: self, button: button)
     }
 }
 
 // MARK: - 暴露给外面的方法
 extension PageTitleView {
-    func setCenterXWithOffsetX(offsetX: CGFloat, totalWidth: CGFloat) {
+    
+    func titleViewWithProgress(progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        // 获取按钮
+        let sourceButton = titleButtons[sourceIndex]
+        let targetButton = titleButtons[targetIndex]
         
-        guard offsetX >= 0 && offsetX <= (totalWidth - kScreenWidth) else {
-            return
-        }
+        // 处理指示器的逻辑
+        let moveTotalX = targetButton.frame.origin.x - sourceButton.frame.origin.x
+        let moveX = moveTotalX * progress
+        lineView.center.x = sourceButton.center.x + moveX
         
-        let centerX = kScreenWidth / totalWidth * offsetX + (titleButtons.first?.center.x)!;
-        UIView.animate(withDuration: 0.25) {
-            self.lineView.center = CGPoint(x: centerX, y: self.lineView.center.y)
+        // 处理颜色转换以及按钮的选中效果
+        let colorDelta: (CGFloat, CGFloat, CGFloat) = ((kSelectorColor.0-kNormarlColor.0)*progress, (kSelectorColor.1-kNormarlColor.1)*progress, (kSelectorColor.2-kNormarlColor.2)*progress)
+        let sourceColor = UIColor(r: kSelectorColor.0 - colorDelta.0, g: kSelectorColor.1 - colorDelta.1, b: kSelectorColor.2 - colorDelta.2)
+        let targetColor = UIColor(r: kNormarlColor.0 + colorDelta.0, g: kNormarlColor.1 + colorDelta.1, b: kNormarlColor.2 + colorDelta.2)
+        
+        if (sourceButton != targetButton) {
+            sourceButton.setTitleColor(sourceColor, for: .normal)
+            targetButton.setTitleColor(targetColor, for: .normal)
+        } else {
+            selectedBtn = sourceButton
         }
     }
     
-    func selectTitleButton(offsetX: CGFloat) {
-        
-        let index = Int(offsetX / kScreenWidth)
-        let button = titleButtons[index]
-        guard button != selectedBtn else {
-            return
-        }
-        
-        button.isSelected = true
-        selectedBtn?.isSelected = false
-        selectedBtn = button
-        
-    }
+//    func setCenterXWithOffsetX(offsetX: CGFloat, totalWidth: CGFloat) {
+//        
+//        guard offsetX >= 0 && offsetX <= (totalWidth - kScreenWidth) else {
+//            return
+//        }
+//        
+//        let centerX = kScreenWidth / totalWidth * offsetX + (titleButtons.first?.center.x)!;
+//        UIView.animate(withDuration: 0.25) {
+//            self.lineView.center = CGPoint(x: centerX, y: self.lineView.center.y)
+//        }
+//    }
+//    
+//    func selectTitleButton(offsetX: CGFloat) {
+//        
+//        let index = Int(offsetX / kScreenWidth)
+//        let button = titleButtons[index]
+//        guard button != selectedBtn else {
+//            return
+//        }
+//        
+//        button.isSelected = true
+//        selectedBtn?.isSelected = false
+//        selectedBtn = button
+//        
+//    }
 }
 
