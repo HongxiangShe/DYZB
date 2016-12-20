@@ -12,6 +12,10 @@ fileprivate let kTitleViewHeight: CGFloat = 40
 
 class HomeViewController: UIViewController {
     
+    // MARK: - 懒加载
+    // VM层
+    fileprivate lazy var recommendVM: RecommendViewModel = RecommendViewModel()
+    
     fileprivate lazy var pageTitleView : PageTitleView = {[weak self] in
         let frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kTitleViewHeight)
         let titles = ["推荐", "手游", "娱乐", "游戏", "趣玩"]
@@ -39,6 +43,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        
+        recommendVM.requestData()
     }
 }
 
