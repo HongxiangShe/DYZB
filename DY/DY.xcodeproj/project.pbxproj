@@ -17,7 +17,7 @@
 		4C6A44931E07E1D2005534E4 /* CollectionViewNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A44911E07E1D2005534E4 /* CollectionViewNormalCell.xib */; };
 		4C8743E31E0936590055F0CB /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8743E21E0936590055F0CB /* NetworkTool.swift */; };
 		4C8743E61E0936910055F0CB /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8743E51E0936910055F0CB /* RecommendViewModel.swift */; };
-		4C8743E81E0936A40055F0CB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8743E71E0936A40055F0CB /* Alamofire.framework */; };
+		4C8743E81E0936A40055F0CB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8743E71E0936A40055F0CB /* Alamofire.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4C8743EA1E093E050055F0CB /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8743E91E093E050055F0CB /* Date+Extension.swift */; };
 		4C8743EC1E0945C00055F0CB /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8743EB1E0945C00055F0CB /* AnchorGroup.swift */; };
 		4C8743EE1E094A400055F0CB /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8743ED1E094A400055F0CB /* AnchorModel.swift */; };
@@ -39,7 +39,7 @@
 		4CE004731DF7FA1B00F0648A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004721DF7FA1B00F0648A /* UIImage+Extension.swift */; };
 		4CE004751DF805BC00F0648A /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004741DF805BC00F0648A /* PageTitleView.swift */; };
 		4CE004771DF8064C00F0648A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE004761DF8064C00F0648A /* Common.swift */; };
-		B81B7610C63FD52FB009BFA1 /* Pods_DY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AFE8C0F139A8046BC5BD2B /* Pods_DY.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B81B7610C63FD52FB009BFA1 /* Pods_DY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AFE8C0F139A8046BC5BD2B /* Pods_DY.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E2D1A7F11E081D8E009BD8C8 /* CollectionViewPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1A7EF1E081D8E009BD8C8 /* CollectionViewPrettyCell.swift */; };
 		E2D1A7F21E081D8E009BD8C8 /* CollectionViewPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D1A7F01E081D8E009BD8C8 /* CollectionViewPrettyCell.xib */; };
 		E2D1A7F61E08386A009BD8C8 /* WatchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1A7F51E08386A009BD8C8 /* WatchButton.swift */; };

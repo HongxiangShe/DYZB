@@ -30,6 +30,7 @@ extension RecommendViewModel {
                 let group = AnchorGroup(dict: dict)
                 self.anchorGroups.append(group)
             }
+            print("")
         }
     }
 }
