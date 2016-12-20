@@ -20,12 +20,16 @@ class AnchorGroup: NSObject {
     }
     
     var tag_name: String = ""
-    var icon_url: String = "home_header_normal"
-    fileprivate lazy var anchors: [AnchorModel] = [AnchorModel]()
+    var icon_name: String = "home_header_normal"
+    lazy var anchors: [AnchorModel] = [AnchorModel]()
     
     init(dict: [String: AnyObject]) {
         super.init()
         setValuesForKeys(dict)
+    }
+    
+    override init() {
+        super.init()
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}

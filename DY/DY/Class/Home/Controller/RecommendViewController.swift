@@ -20,11 +20,15 @@ fileprivate let kHeaderHeight: CGFloat = 50
 
 class RecommendViewController: UIViewController {
     
+    // VM层
+    fileprivate lazy var recommendVM: RecommendViewModel = RecommendViewModel()
+    
     fileprivate weak var collectionView: UICollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        loadData()
     }
     
     override func viewWillLayoutSubviews() {
@@ -59,18 +63,16 @@ extension RecommendViewController {
     }
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension RecommendViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        return recommendVM.anchorGroups.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (section == 0) {
-            return 8
-        } else {
-            return 4
-        }
+        let anchorGroup = recommendVM.anchorGroups[section]
+        return anchorGroup.anchors.count
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,7 +87,8 @@ extension RecommendViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderID, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderID, for: indexPath) as! HomeCollectionHeaderView
+        headerView.group = recommendVM.anchorGroups[indexPath.section]
         return headerView
     }
     
@@ -99,6 +102,11 @@ extension RecommendViewController: UICollectionViewDataSource, UICollectionViewD
     
 }
 
-extension RecommendViewController: UICollectionViewDelegate {
-    
+// MARK: - 加载数据
+extension RecommendViewController {
+    func loadData() {
+        recommendVM.requestData {
+            self.collectionView?.reloadData()
+        }
+    }
 }
