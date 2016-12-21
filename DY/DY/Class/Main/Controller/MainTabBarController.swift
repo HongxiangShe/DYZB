@@ -39,7 +39,7 @@ extension MainTabBarController {
     
     fileprivate func addChilds() {
         
-        let homeVC = UIStoryboard(name: "HomeViewController", bundle: nil).instantiateInitialViewController()!
+        let homeVC = HomeViewController()
         addChildVC(normalImage: "tabHome", highlightedImage: "tabHomeHL", title:"首页", childViewController: homeVC)
         
         let liveVC = UIStoryboard(name: "LiveViewController", bundle: nil).instantiateInitialViewController()!

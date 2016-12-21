@@ -7,15 +7,31 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionViewPrettyCell: UICollectionViewCell {
 
     @IBOutlet weak var watchButtonWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var watchButton: WatchButton!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    var anchor: AnchorModel? {
+        didSet {
+            if (anchor?.online)! < 10000 {
+                watchButton .setTitle("\((anchor?.online)!)", for: .normal)
+            } else {
+                let count = String(format: "%.1f", CGFloat((anchor?.online)!) / 10000)
+                watchButton .setTitle("\(count)万", for: .normal)
+            }
+            iconImageView.kf.setImage(with: URL(string: (anchor?.vertical_src)!), placeholder: UIImage(named: "live_cell_default_phone")) { (_, _, _, _) in
+                
+            }
+            nameLabel.text = anchor?.nickname
+            cityLabel.text = anchor?.anchor_city
+        }
     }
     
     override func layoutSubviews() {

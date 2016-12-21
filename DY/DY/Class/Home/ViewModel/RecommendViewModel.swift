@@ -67,6 +67,8 @@ extension RecommendViewModel {
             guard let dataArr = resultDic["data"] as? [[String: AnyObject]] else {return}
             for dict in dataArr {
                 let group = AnchorGroup(dict: dict)
+                // 剔除主播数为0的组
+                guard group.anchors.count != 0 else {continue}
                 self.anchorGroups.append(group)
             }
             group.leave()

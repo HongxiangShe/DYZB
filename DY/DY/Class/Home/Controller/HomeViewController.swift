@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     
     fileprivate func setupUI() {
-        automaticallyAdjustsScrollViewInsets = false
+//        automaticallyAdjustsScrollViewInsets = false
         setupNav()
         
         view.addSubview(pageTitleView)

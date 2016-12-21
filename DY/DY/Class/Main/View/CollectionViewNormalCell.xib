@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +30,7 @@
                             <constraint firstItem="tcW-F8-Ing" firstAttribute="leading" secondItem="h1l-Xk-gch" secondAttribute="leading" constant="5" id="VgS-x7-zVM"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_live_player_phone" translatesAutoresizingMaskIntoConstraints="NO" id="Kbi-eR-vai">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userNameIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Kbi-eR-vai">
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="9IN-RU-V3g"/>
                             <constraint firstAttribute="height" constant="12" id="jTd-gb-0Kf"/>
@@ -77,15 +76,18 @@
             <size key="customSize" width="314" height="193"/>
             <connections>
                 <outlet property="coverImageView" destination="mHF-q5-tGy" id="Hbz-jz-5Wk"/>
+                <outlet property="nameLabel" destination="fEz-mb-c6g" id="68W-rE-Efs"/>
+                <outlet property="roomNameLabel" destination="tcW-F8-Ing" id="FZV-58-SMI"/>
+                <outlet property="smallIconImageView" destination="Kbi-eR-vai" id="AOY-4j-KEc"/>
                 <outlet property="watchButton" destination="AUC-Ui-js6" id="RU3-EB-dBs"/>
                 <outlet property="watchButtonWidthConstraint" destination="5je-m9-Fiu" id="3bU-WV-UXZ"/>
             </connections>
-            <point key="canvasLocation" x="3" y="-122"/>
+            <point key="canvasLocation" x="37" y="-140"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Img_default" width="172" height="103"/>
-        <image name="home_live_player_phone" width="14" height="14"/>
+        <image name="userNameIcon" width="12" height="12"/>
         <image name="viewerIcon" width="10" height="8"/>
     </resources>
 </document>

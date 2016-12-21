@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,6 +18,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-Hx-egr">
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安妮 baby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne5-ev-dRw">
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="eLg-Cd-m8p"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,7 +56,7 @@
                             <constraint firstItem="f0I-TQ-SzI" firstAttribute="leading" secondItem="ewb-Hx-egr" secondAttribute="leading" constant="5" id="lhV-ai-uC5"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-TW-S3O" customClass="WatchButton" customModule="DY" customModuleProvider="target">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di0-TW-S3O" customClass="WatchButton" customModule="DY" customModuleProvider="target">
                         <color key="backgroundColor" white="0.0" alpha="0.20251794763513514" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Mfu-GS-ofi"/>
@@ -84,10 +86,13 @@
             </constraints>
             <size key="customSize" width="206" height="184"/>
             <connections>
+                <outlet property="cityLabel" destination="JbN-zO-wsj" id="qj7-iD-RXN"/>
+                <outlet property="iconImageView" destination="iIP-9B-l9V" id="GSs-7X-w5f"/>
+                <outlet property="nameLabel" destination="Ne5-ev-dRw" id="PCp-vw-Tco"/>
                 <outlet property="watchButton" destination="Di0-TW-S3O" id="RNi-Tc-m3e"/>
                 <outlet property="watchButtonWidthConstraint" destination="R2V-Kz-NjU" id="TuP-nr-PWN"/>
             </connections>
-            <point key="canvasLocation" x="-76" y="41"/>
+            <point key="canvasLocation" x="51" y="-79"/>
         </collectionViewCell>
     </objects>
     <resources>
